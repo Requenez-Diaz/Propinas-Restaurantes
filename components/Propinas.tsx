@@ -50,7 +50,7 @@ const Propinas = () => {
           <Text style={styles.textHeader}>
             Seleccione el porcentaje de la Propina
           </Text>
-          <View style={styles.buttonsContainer}>
+          <View style={styles.btnContainer}>
             <TouchableOpacity
               onPress={() => setPorcentaje(5)}
               style={
@@ -179,9 +179,56 @@ export default Propinas;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 25,
+    paddingTop: 24,
+    paddingLeft: 24,
+    paddingRight: 24,
+    width: '100%',
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+    backgroundColor: '#FFFFFF',
+  },
+  input: {
+    backgroundColor: '#F2F8FB',
+    borderRadius: 7,
+    padding: 10,
+    textAlign: 'right',
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#004445',
   },
 
-  textHeader: {},
-  inputAdd: {},
+  textHeader: {
+    fontWeight: 'bold',
+    fontSize: 18,
+    color: '#687778',
+    borderWidth: 0,
+    marginBottom: 7,
+    marginTop: 7
+  },
+  inputAdd: {
+    position: 'absolute',
+    color: '#A2AABB',
+    top: 10,
+    left: 10,
+    zIndex: 2,
+    fontSize: 22
+  },
+  boxSelectTip: {
+    marginTop: 30
+  },
+  btnContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignContent: 'space-between',
+    flexWrap: 'wrap'
+  },
+  botonPorcentajeActivo: {
+    backgroundColor: '#00C1AC',
+        borderRadius: 8,
+        width: '48%',
+        paddingVertical: 7,
+        marginTop: 10,
+
+  }
 });
