@@ -6,12 +6,12 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
-  ViewBase,
 } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 
 const Propinas = () => {
   const [Propina, setPropina] = useState<string>("5.55");
-  const [totalPersona, setTotalPersona] = useState<string>("200");
+  const [totalPersona, setTotalPersona] = useState<string>("34.2");
   const [total, setTotal] = useState<number>(444.4);
   const [personas, setPersonas] = useState<number>(7);
   const [porcentaje, setPorcentaje] = useState<number>(16);
@@ -40,16 +40,14 @@ const Propinas = () => {
         <View>
           <Text style={styles.inputAdd}> C$</Text>
           <TextInput
-            style={styles.input}
+            style={styles.inputs}
             keyboardType="numeric"
             defaultValue={total.toString()}
             onChangeText={() => setTotal}
           />
         </View>
         <View style={styles.boxSelectTip}>
-          <Text style={styles.textHeader}>
-            Select Tip %
-          </Text>
+          <Text style={styles.textHeader}>Select Tip %</Text>
           <View style={styles.btnContainer}>
             <TouchableOpacity
               onPress={() => setPorcentaje(5)}
@@ -142,14 +140,15 @@ const Propinas = () => {
               </Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.botonPorcentaje}>
-              <Text style= {styles.textoBotonPorcentaje}>Custom</Text>
+              <Text style={styles.textoBotonPorcentaje}>Custom</Text>
             </TouchableOpacity>
           </View>
         </View>
 
         <View style={styles.boxSelectTip}>
-          <Text style={styles.textHeader}>Numero de Personas</Text>
+          <Text style={styles.textHeader}>Number of people</Text>
           <View>
+            <AntDesign style={styles.inputAdd} name="user" size={32} />
             <TextInput
               style={styles.inputs}
               keyboardType="numeric"
@@ -159,7 +158,6 @@ const Propinas = () => {
           </View>
         </View>
         <View style={styles.resum}>
-          
           <View style={styles.filaResum}>
             <Text style={styles.textWheader}>Propina</Text>
             <Text style={styles.textGheader}>Persona</Text>
@@ -167,10 +165,19 @@ const Propinas = () => {
           <View>
             <Text style={styles.textMountResum}>${Propina}</Text>
           </View>
+          <View style={styles.filaResum}>
+            <View>
+              <Text style={styles.textWheader}>Total</Text>
+              <Text style={styles.textGheader}>Persona</Text>
+            </View>
+            <View>
+              <Text style={styles.textMountResum}>${totalPersona}</Text>
+            </View>
+          </View>
+          <TouchableOpacity onPress={() => resetData()} style={styles.btnReset}>
+            <Text style={styles.textoBtnReset}>Reset</Text>
+          </TouchableOpacity>
         </View>
-        <TouchableOpacity onPress={() => resetData()} style={styles.btnReset}>
-          <Text style={styles.textoBtnReset}>Reset</Text>
-        </TouchableOpacity>
       </ScrollView>
     </View>
   );
@@ -183,125 +190,114 @@ const styles = StyleSheet.create({
     paddingTop: 24,
     paddingLeft: 24,
     paddingRight: 24,
-    width: '100%',
+    width: "100%",
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: "#FFFFFF",
   },
-  input: {
-    backgroundColor: '#F2F8FB',
+  inputs: {
+    backgroundColor: "#F2F8FB",
     borderRadius: 7,
     padding: 10,
-    textAlign: 'right',
+    textAlign: "right",
     fontSize: 22,
-    fontWeight: 'bold',
-    color: '#004445',
+    fontWeight: "bold",
+    color: "#004445",
   },
 
   textHeader: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 18,
-    color: '#687778',
+    color: "#687778",
     borderWidth: 0,
     marginBottom: 7,
-    marginTop: 7
+    marginTop: 7,
   },
   inputAdd: {
-    position: 'absolute',
-    color: '#A2AABB',
+    position: "absolute",
+    color: "#A2AABB",
     top: 10,
     left: 10,
     zIndex: 2,
-    fontSize: 22
+    fontSize: 22,
   },
   boxSelectTip: {
-    marginTop: 30
+    marginTop: 30,
   },
   btnContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignContent: 'space-between',
-    flexWrap: 'wrap'
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignContent: "space-between",
+    flexWrap: "wrap",
   },
   botonPorcentajeActivo: {
-    backgroundColor: '#00C1AC',
-        borderRadius: 8,
-        width: '48%',
-        paddingVertical: 7,
-        marginTop: 10,
-
+    backgroundColor: "#00C1AC",
+    borderRadius: 8,
+    width: "48%",
+    paddingVertical: 7,
+    marginTop: 10,
   },
   botonPorcentaje: {
-    backgroundColor: '#00494C',
+    backgroundColor: "#00494C",
     borderRadius: 8,
-    width: '48%',
+    width: "48%",
     paddingVertical: 7,
     marginTop: 10,
   },
   textoBotonPorcentajeactivo: {
-    color: '#004B4F',
-    fontWeight: 'bold',
+    color: "#004B4F",
+    fontWeight: "bold",
     fontSize: 35,
-    textAlign: 'center',
-   },
-    textoBotonPorcentaje: {
-        color: '#F5FBFC',
-        fontWeight: 'bold',
-        fontSize: 35,
-        textAlign: 'center',
-    },
-    resum: { 
-        backgroundColor: '#00494C',
-        borderRadius: 8,
-        marginTop: 25,
-        padding: 20,
-    },
-    filaResum: {
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      marginBottom: 20,
-    },
-    textWheader: {
-      color: '#EDFEFE',
-      fontWeight: 'bold',
-      fontSize: 22,
-      borderWidth: 0,
-    },
-    textGheader: {
-      color: '#4F8B8E',
-      fontWeight: 'bold',
-      fontSize: 14,
-      borderWidth: 0,
+    textAlign: "center",
+  },
+  textoBotonPorcentaje: {
+    color: "#F5FBFC",
+    fontWeight: "bold",
+    fontSize: 35,
+    textAlign: "center",
+  },
+  resum: {
+    backgroundColor: "#00494C",
+    borderRadius: 8,
+    marginTop: 25,
+    padding: 20,
+  },
+  filaResum: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 20,
+  },
+  textWheader: {
+    color: "#EDFEFE",
+    fontWeight: "bold",
+    fontSize: 22,
+    borderWidth: 0,
+  },
+  textGheader: {
+    color: "#4F8B8E",
+    fontWeight: "bold",
+    fontSize: 18,
+    borderWidth: 0,
   },
   textMountResum: {
-      color: '#00BEAD',
-      fontWeight: 'bold',
-      fontSize: 40,
-      borderWidth: 0,
+    color: "#00BEAD",
+    fontWeight: "bold",
+    fontSize: 40,
+    borderWidth: 0,
   },
   btnReset: {
-      backgroundColor: '#00C1AC',
-      borderRadius: 8,
-      width: '100%',
-      paddingVertical: 7,
-      marginTop: 1,
+    backgroundColor: "#00C1AC",
+    borderRadius: 8,
+    width: "100%",
+    paddingVertical: 7,
+    marginTop: 2,
   },
   textoBtnReset: {
-      color: '#00514E',
-      fontWeight: 'bold',
-      fontSize: 35,
-      textAlign: 'center',
+    color: "#00514E",
+    fontWeight: "bold",
+    fontSize: 35,
+    textAlign: "center",
   },
-  inputs: {
-      backgroundColor: '#F2F8FB',
-      borderRadius: 8,
-      padding: 10,
-      textAlign: 'right',
-      fontSize: 22,
-      fontWeight: 'bold',
-      color: '#004445'
-  }
-
 });

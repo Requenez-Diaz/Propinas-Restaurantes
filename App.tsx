@@ -5,9 +5,8 @@ export default function App() {
   return (
     <View style={styles.fondoApp}>
       <View style={styles.container}>
-        <Text style={styles.txt}>
-          Cuenta de propinas!!
-        </Text>
+        <Text style={styles.txt}>S P L I</Text>
+        <Text style={styles.txt}>T T E R</Text>
       </View>
       <Propinas />
     </View>
@@ -24,7 +23,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   txt: {
-    fontSize: 35,
+    fontSize: 40,
     fontWeight: "bold",
     color: "hsl(172, 67%, 45%)",
   },
