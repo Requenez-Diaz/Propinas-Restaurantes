@@ -36,7 +36,7 @@ const Propinas = () => {
   return (
     <View style={styles.container}>
       <ScrollView>
-        <Text style={styles.textHeader}> Cuenta </Text>
+        <Text style={styles.textHeader}> Bill </Text>
         <View>
           <Text style={styles.inputAdd}> C$</Text>
           <TextInput
@@ -48,7 +48,7 @@ const Propinas = () => {
         </View>
         <View style={styles.boxSelectTip}>
           <Text style={styles.textHeader}>
-            Seleccione el porcentaje de la Propina
+            Select Tip %
           </Text>
           <View style={styles.btnContainer}>
             <TouchableOpacity
@@ -142,7 +142,7 @@ const Propinas = () => {
               </Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.botonPorcentaje}>
-              <Text>Custom</Text>
+              <Text style= {styles.textoBotonPorcentaje}>Custom</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -159,6 +159,7 @@ const Propinas = () => {
           </View>
         </View>
         <View style={styles.resum}>
+          
           <View style={styles.filaResum}>
             <Text style={styles.textWheader}>Propina</Text>
             <Text style={styles.textGheader}>Persona</Text>
@@ -230,5 +231,71 @@ const styles = StyleSheet.create({
         paddingVertical: 7,
         marginTop: 10,
 
+  },
+  botonPorcentaje: {
+    backgroundColor: '#00494C',
+    borderRadius: 8,
+    width: '48%',
+    paddingVertical: 7,
+    marginTop: 10,
+  },
+  textoBotonPorcentajeactivo: {
+    color: '#004B4F',
+    fontWeight: 'bold',
+    fontSize: 35,
+    textAlign: 'center',
+   },
+    textoBotonPorcentaje: {
+        color: '#F5FBFC',
+        fontWeight: 'bold',
+        fontSize: 35,
+        textAlign: 'center',
+    },
+    resum: { 
+        backgroundColor: '#00494C',
+        borderRadius: 8,
+        marginTop: 25,
+        padding: 20,
+    },
+    filaResum: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      marginBottom: 20,
+    },
+    textWheader: {
+      color: '#EDFEFE',
+      fontWeight: 'bold',
+      fontSize: 22,
+      borderWidth: 0,
+    },
+    textGheader: {
+      color: '#4F8B8E',
+      fontWeight: 'bold',
+      fontSize: 14,
+      borderWidth: 0,
+  },
+  textMountResum: {
+      color: '#00BEAD',
+      fontWeight: 'bold',
+      fontSize: 40,
+      borderWidth: 0,
+  },
+  btnReset: {
+      backgroundColor: '#00C1AC',
+      borderRadius: 8,
+      width: '100%',
+      paddingVertical: 7,
+      marginTop: 1,
+  },
+  textoBtnReset: {
+      color: '#00514E',
+      fontWeight: 'bold',
+      fontSize: 35,
+      textAlign: 'center',
+  },
+  inputs: {
+
   }
+
 });
