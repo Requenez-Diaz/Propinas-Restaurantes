@@ -295,7 +295,13 @@ const styles = StyleSheet.create({
       textAlign: 'center',
   },
   inputs: {
-
+      backgroundColor: '#F2F8FB',
+      borderRadius: 8,
+      padding: 10,
+      textAlign: 'right',
+      fontSize: 22,
+      fontWeight: 'bold',
+      color: '#004445'
   }
 
 });
